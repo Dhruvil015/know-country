@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import {
+  CountryContext,
+  CountryProvider,
+} from "./components/Context/CountryProvider";
+import { ThemeContext } from "./components/Context/ThemeProvider";
+import NavigationBar from "./components/navigation/NavigationBar";
+import MainSection from "./components/BodyMainSection/MainSection";
+import { Fragment, useEffect } from "react/cjs/react.development";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const { theme, themeFunction } = useContext(ThemeContext);
+
+  useEffect(
+    (e) => {
+      if (theme) {
+        document.getElementById("body").style.backgroundColor =
+          "var(--DM-background)";
+      } else {
+        document.getElementById("body").style.backgroundColor =
+          "var(--LM-background)";
+      }
+    },
+    [theme]
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CountryProvider>
+      <div className="App">
+        <NavigationBar theme={theme} themeFunction={themeFunction} />
+        <MainSection />
+      </div>
+    </CountryProvider>
   );
 }
 

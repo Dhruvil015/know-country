@@ -1,0 +1,32 @@
+.head_search_filter {
+  /* margin-left: 80px;
+  margin-top: 3rem; */
+  max-width: 1320px;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.country_cards {
+  margin: 3rem 5rem;
+}
+
+@media (min-width: 750px) and (max-width: 1439px) {
+  .head_search_filter {
+    margin: 3rem 3.5rem;
+  }
+  .country_cards {
+    margin: 3rem 3.5rem;
+  }
+}
+
+@media (max-width: 749px) {
+  .head_search_filter {
+    margin: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .country_cards {
+    margin: 3rem 3.5rem;
+  }
+}
