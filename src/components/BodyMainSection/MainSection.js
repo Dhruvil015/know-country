@@ -8,10 +8,10 @@ import { ThemeContext } from "../Context/ThemeProvider";
 import DetailedCard from "../DetailedCard/DetailedCard";
 
 const MainSection = () => {
-  const { theme, themeFunction } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { stateCountriesData, stateLoadingData } = useContext(CountryContext);
-  const [stateCountries, setStateCountries] = stateCountriesData;
-  const [stateLoading, setStateLoading] = stateLoadingData;
+  const [stateCountries] = stateCountriesData;
+  const [stateLoading] = stateLoadingData;
   const [select, setSelect] = useState("");
   const [countries, setCountries] = useState([]);
   const [show, setShow] = useState(false);
@@ -93,6 +93,7 @@ const MainSection = () => {
       ) : (
         <div>
           <DetailedCard
+            theme={theme}
             cardClick={cardClick}
             setCardClick={setCardClick}
             show={show}

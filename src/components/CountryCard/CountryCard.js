@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classes from "./CountryCard.module.css";
 
 // country.name.trim().toLowerCase()
@@ -18,7 +18,7 @@ const CountryCard = ({ theme, countries, setShow, setCardClick }) => {
             }}
           >
             <div className={classes.country_img}>
-              <img src={country.flags.svg} />
+              <img src={country.flags.svg} alt={country.name} />
             </div>
             <div
               className={

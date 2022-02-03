@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {
-  ThemeContext,
-  ThemeProvider,
-} from "./components/Context/ThemeProvider";
+import { ThemeProvider } from "./components/Context/ThemeProvider";
 
 ReactDOM.render(
   <React.StrictMode>

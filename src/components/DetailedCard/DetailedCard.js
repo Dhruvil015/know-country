@@ -1,9 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import FeatherIcon from "feather-icons-react";
 import classes from "./DetailedCard.module.css";
 import { CountryContext } from "../Context/CountryProvider";
 
 const DetailedCard = ({
+  theme,
   cardClick,
   setCardClick,
   show,
@@ -11,12 +12,12 @@ const DetailedCard = ({
   countryCodeToName,
 }) => {
   const { stateCountriesData } = useContext(CountryContext);
-  const [stateCountries, setStateCountries] = stateCountriesData;
+  const [stateCountries] = stateCountriesData;
 
   return (
     <div className={classes.main_container}>
       <button
-        className={classes.button_back}
+        className={theme ? classes.button_back_dark : classes.button_back}
         onClick={() => {
           setShow(false);
           setCardClick({});
@@ -26,11 +27,13 @@ const DetailedCard = ({
         <span className={classes.button_back_text}>Back</span>
       </button>
       <div className={classes.detail_container}>
-        <img src={cardClick.flags.svg}></img>
+        <img src={cardClick.flags.svg} alt={cardClick.name}></img>
         <div className={classes.all_details}>
-          <h1>{cardClick.name}</h1>
+          <h1 className={theme ? classes.title_dark : classes.title}>
+            {cardClick.name}
+          </h1>
           <div className={classes.list_items_container}>
-            <div className={classes.list1}>
+            <div className={theme ? classes.list1_dark : classes.list1}>
               <li>
                 Native Name: <span>{cardClick.nativeName}</span>
               </li>
@@ -47,7 +50,7 @@ const DetailedCard = ({
                 Capital: <span>{cardClick.capital}</span>
               </li>
             </div>
-            <div className={classes.list2}>
+            <div className={theme ? classes.list2_dark : classes.list2}>
               <li>
                 Top Level Domian: <span>{cardClick.topLevelDomain}</span>
               </li>
@@ -69,19 +72,43 @@ const DetailedCard = ({
               </li>
             </div>
           </div>
-          <div className={classes.border_countries}>
+          <div className={classes.border_countries_container}>
             {"borders" in cardClick ? (
-              <li>
-                Border Countries :{" "}
-                {countryCodeToName().map((item) => {
-                  return (
-                    <span>
-                      &nbsp; &nbsp;
-                      <button key={item}>{item}</button>
-                    </span>
-                  );
-                })}
-              </li>
+              <div
+                className={
+                  theme
+                    ? classes.border_countries_dark
+                    : classes.border_countries
+                }
+              >
+                <div className={classes.border_countries_heading}>
+                  Border Countries :
+                </div>
+                <div>
+                  {countryCodeToName().map((item) => {
+                    return (
+                      <React.Fragment key={item}>
+                        &nbsp;
+                        <button
+                          className={theme ? classes.btn_dark : classes.btn}
+                          key={item}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setCardClick(
+                              stateCountries.filter(
+                                (country) => country.name === item
+                              )[0]
+                            );
+                          }}
+                        >
+                          {item}
+                        </button>
+                        &nbsp;
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+              </div>
             ) : (
               ""
             )}
