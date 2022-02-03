@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./NavigationBar.module.css";
-import MoonOutline from "../../assets/icons/moon-outline.svg";
 import FeatherIcon from "feather-icons-react";
 
 const NavigationBar = ({ theme, themeFunction }) => {
