@@ -4,10 +4,8 @@ import classes from "./DetailedCard.module.css";
 import { CountryContext } from "../Context/CountryProvider";
 
 const DetailedCard = ({
-  theme,
   cardClick,
   setCardClick,
-  show,
   setShow,
   countryCodeToName,
 }) => {
@@ -17,7 +15,7 @@ const DetailedCard = ({
   return (
     <div className={classes.main_container}>
       <button
-        className={theme ? classes.button_back_dark : classes.button_back}
+        className={classes.button_back}
         onClick={() => {
           setShow(false);
           setCardClick({});
@@ -29,11 +27,9 @@ const DetailedCard = ({
       <div className={classes.detail_container}>
         <img src={cardClick.flags.svg} alt={cardClick.name}></img>
         <div className={classes.all_details}>
-          <h1 className={theme ? classes.title_dark : classes.title}>
-            {cardClick.name}
-          </h1>
+          <h1 className={classes.title}>{cardClick.name}</h1>
           <div className={classes.list_items_container}>
-            <div className={theme ? classes.list1_dark : classes.list1}>
+            <div className={classes.list1}>
               <li>
                 Native Name: <span>{cardClick.nativeName}</span>
               </li>
@@ -50,7 +46,7 @@ const DetailedCard = ({
                 Capital: <span>{cardClick.capital}</span>
               </li>
             </div>
-            <div className={theme ? classes.list2_dark : classes.list2}>
+            <div className={classes.list2}>
               <li>
                 Top Level Domian: <span>{cardClick.topLevelDomain}</span>
               </li>
@@ -74,13 +70,7 @@ const DetailedCard = ({
           </div>
           <div className={classes.border_countries_container}>
             {"borders" in cardClick ? (
-              <div
-                className={
-                  theme
-                    ? classes.border_countries_dark
-                    : classes.border_countries
-                }
-              >
+              <div className={classes.border_countries}>
                 <div className={classes.border_countries_heading}>
                   Border Countries :
                 </div>
@@ -90,7 +80,7 @@ const DetailedCard = ({
                       <React.Fragment key={item}>
                         &nbsp;
                         <button
-                          className={theme ? classes.btn_dark : classes.btn}
+                          className={classes.btn}
                           key={item}
                           onClick={(e) => {
                             e.preventDefault();

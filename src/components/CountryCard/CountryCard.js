@@ -1,15 +1,13 @@
 import React from "react";
 import classes from "./CountryCard.module.css";
 
-// country.name.trim().toLowerCase()
-
-const CountryCard = ({ theme, countries, setShow, setCardClick }) => {
+const CountryCard = ({ countries, setShow, setCardClick }) => {
   return (
     <div className={classes.container}>
       {countries.map((country) => {
         return (
           <div
-            className={theme ? classes.card_dark : classes.card}
+            className={classes.card}
             key={country.name}
             onClick={(e) => {
               e.preventDefault();
@@ -20,11 +18,7 @@ const CountryCard = ({ theme, countries, setShow, setCardClick }) => {
             <div className={classes.country_img}>
               <img src={country.flags.svg} alt={country.name} />
             </div>
-            <div
-              className={
-                theme ? classes.country_info_dark : classes.country_info
-              }
-            >
+            <div className={classes.country_info}>
               <p>{country.name}</p>
               <li>
                 Population: <span>{country.population}</span>

@@ -7,23 +7,31 @@
 }
 
 :root {
-  --LM-text: #111517;
-  --LM-input: #858585;
-  --LM-background: #fafafa;
-  --LM-element: #ffffff;
-  --DM-element: #2b3945;
-  --DM-background: #202c37;
-  --DM-text: #ffffff;
   --Font-family: "Nunito Sans", sans-serif;
   --Font-regular: 300;
   --Font-semibold: 600;
   --Font-bold: 800;
 }
 
+.light {
+  --text: #111517;
+  --input: #858585;
+  --background: #fafafa;
+  --element: #ffffff;
+  --placeholder: #858585;
+}
+
+.dark {
+  --text: #ffffff;
+  --input: #858585;
+  --background: #202c37;
+  --element: #2b3945;
+  --placeholder: #ffffff;
+}
+
 body {
   font-family: var(--Font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--LM-background);
   overflow-x: hidden;
 }

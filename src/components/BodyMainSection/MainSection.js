@@ -4,11 +4,9 @@ import SearchBar from "../search/SearchBar";
 import classes from "./MainSection.module.css";
 import CountryCard from "../CountryCard/CountryCard";
 import { CountryContext } from "../Context/CountryProvider";
-import { ThemeContext } from "../Context/ThemeProvider";
 import DetailedCard from "../DetailedCard/DetailedCard";
 
 const MainSection = () => {
-  const { theme } = useContext(ThemeContext);
   const { stateCountriesData, stateLoadingData } = useContext(CountryContext);
   const [stateCountries] = stateCountriesData;
   const [stateLoading] = stateLoadingData;
@@ -62,9 +60,8 @@ const MainSection = () => {
       {!show ? (
         <div>
           <div className={classes.head_search_filter}>
-            <SearchBar theme={theme} fuzzySearchHandler={fuzzySearchHandler} />
+            <SearchBar fuzzySearchHandler={fuzzySearchHandler} />
             <FilterRegion
-              theme={theme}
               select={select}
               setSelect={setSelect}
               onFilterSubmit={onFilterSubmit}
@@ -74,7 +71,7 @@ const MainSection = () => {
             <h1
               style={{
                 textAlign: "center",
-                color: "var(--LM-text)",
+                color: "var(--text)",
               }}
             >
               Loading...
@@ -82,7 +79,6 @@ const MainSection = () => {
           ) : (
             <div className={classes.country_cards}>
               <CountryCard
-                theme={theme}
                 countries={countries}
                 setShow={setShow}
                 setCardClick={setCardClick}
@@ -93,7 +89,6 @@ const MainSection = () => {
       ) : (
         <div>
           <DetailedCard
-            theme={theme}
             cardClick={cardClick}
             setCardClick={setCardClick}
             show={show}

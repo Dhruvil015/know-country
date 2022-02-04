@@ -1,7 +1,7 @@
 .search_country_form {
   width: 30rem;
   height: 3.5rem;
-  background-color: var(--LM-element);
+  background-color: var(--element);
   display: flex;
   align-items: center;
   border-radius: 4px;
@@ -17,8 +17,8 @@
   border: none;
   outline: none;
   border-radius: 4px;
-  background-color: var(--LM-element);
-  color: var(--LM-text);
+  background-color: var(--element);
+  color: var(--text);
   font-family: var(--Font-family);
   font-weight: var(--Font-semibold);
   font-size: 0.875em;
@@ -27,38 +27,7 @@
 }
 
 .inputField::placeholder {
-  color: var(--LM-input);
-}
-
-.search_country_form_dark {
-  width: 30rem;
-  height: 3.5rem;
-  background-color: var(--DM-element);
-  display: flex;
-  align-items: center;
-  border-radius: 4px;
-  padding-left: 2rem;
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.inputField_dark {
-  height: 3.5rem;
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-  border-radius: 4px;
-  background-color: var(--DM-element);
-  color: var(--DM-text);
-  font-family: var(--Font-family);
-  font-weight: var(--Font-semibold);
-  font-size: 0.875em;
-  padding-left: 2rem;
-  outline: none;
-}
-
-.inputField_dark::placeholder {
-  color: var(--DM-text);
+  color: var(--placeholder);
 }
 
 @media (min-width: 750px) and (max-width: 1439px) {
