@@ -31,15 +31,13 @@
 }
 
 @media (min-width: 750px) and (max-width: 1439px) {
-  .search_country_form,
-  .search_country_form_dark {
+  .search_country_form {
     width: 25rem;
   }
 }
 
 @media (max-width: 749px) {
-  .search_country_form,
-  .search_country_form_dark {
+  .search_country_form {
     width: 100%;
   }
 }
